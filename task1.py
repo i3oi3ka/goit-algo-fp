@@ -178,10 +178,7 @@ if __name__ == "__main__":
     llist.print_list()
 
     llist1 = LinkedList()
-    llist1.insert_at_beginning(17)
-    llist1.insert_at_beginning(10)
-    llist1.reverse()
-    llist1.print_list()
+    llist1.insert_at_beginning(40)
     llist1.insert_at_beginning(17)
     llist1.insert_at_beginning(10)
     llist1.insert_at_beginning(5)
@@ -189,6 +186,7 @@ if __name__ == "__main__":
     llist1.insert_at_beginning(3)
 
     llist2 = LinkedList()
+    llist2.insert_at_beginning(40)
     llist2.insert_at_beginning(25)
     llist2.insert_at_beginning(20)
     llist2.insert_at_beginning(15)
@@ -198,8 +196,6 @@ if __name__ == "__main__":
 
     llist1.print_list()
     llist2.print_list()
-
-    llist3 = LinkedList()
     llist1.merge_list(llist2)
     llist1.print_list()
 

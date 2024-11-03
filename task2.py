@@ -4,6 +4,7 @@
 # Програма має візуалізувати фрактал “дерево Піфагора”, і користувач повинен мати можливість вказати рівень рекурсії.
 
 import turtle
+from reprlib import recursive_repr
 
 screen = turtle.Screen()  # Create the screen.
 screen.setup(640, 640)  # Set Window size.
@@ -36,10 +37,7 @@ def treeFractal(TTL, recursionLevel, branchLength, branchReduction, angle):
         TTL.backward(branchLength)
 
 
-# Call treeFractal function with the following parameters.
-# Recursion Level = 7; Branch length = 50.
-# Branch reduction each recursion iteration = 5.
-# Turn left of right angle by 25 degrees.
-treeFractal(TTL, 8, 50, 5, 25)
+recursive_lvl = 7
+treeFractal(TTL, recursive_lvl, 50, 5, 25)
 
 screen.exitonclick()  # Exit screen

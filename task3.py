@@ -1,3 +1,4 @@
+
 # Завдання 3. Дерева, алгоритм Дейкстри
 # Розробіть алгоритм Дейкстри для знаходження найкоротших шляхів у зваженому графі, 
 # використовуючи бінарну купу. Завдання включає створення графа, використання піраміди 
@@ -26,7 +27,6 @@ def dijkstra_with_paths(graph: nx.Graph, start: str) -> Tuple[Dict[str, int], Di
         # Якщо знайдена коротша відстань, ігноруємо старий варіант
         if current_distance > distances[current_node]:
             continue
-        print(current_distance, current_node)
         # Перевірка всіх сусідів
         for neighbor in graph.neighbors(current_node):
             weight = graph[current_node][neighbor]['weight']

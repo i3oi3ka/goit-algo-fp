@@ -1,5 +1,4 @@
 from task4 import draw_tree, Node, build_heap_tree
-import  heapq
 
 
 def count_nodes(node: Node):
@@ -8,50 +7,51 @@ def count_nodes(node: Node):
     return 1 + count_nodes(node.left) + count_nodes(node.right)
 
 
-def generate_color(step, total_steps):
-    base_color = [135, 206, 250]
+def generate_color(step, count_node):
+    base_color = [0, 0, 255]
     white = [255, 255, 255]
-    ratio = step / total_steps
+    ratio = step / count_node
     color = [int(base + ratio * (w - base)) for base, w in zip(base_color, white)]
     return f"#{color[0]:02x}{color[1]:02x}{color[2]:02x}"
 
 
-def dfs_visualize(root: Node, total_steps: int):
-    stack = [root]
+def dfs_visualize(node: Node, count_node: int):
+    stack = [node]
     step = 0
     while stack:
-        root = stack.pop()
-        root.color = generate_color(step, total_steps)
+        node = stack.pop()
+        node.color = generate_color(step, count_node)
         step += 1
-        if root.right:
-            stack.append(root.right)
-        if root.left:
-            stack.append(root.left)
+        if node.right:
+            stack.append(node.right)
+        if node.left:
+            stack.append(node.left)
 
 
-def bfs_visualize(root: Node, total_steps: int):
-    queue = [root]
+def bfs_visualize(node: Node, count_node: int):
+    queue = [node]
     step = 0
     while queue:
-        root = queue.pop()
-        root.color = generate_color(step, total_steps)
+        node = queue.pop()
+        node.color = generate_color(step, count_node)
         step += 1
-        if root.left:
-            queue.insert(0, root.left)
-        if root.right:
-            queue.insert(0, root.right)
+        if node.left:
+            queue.insert(0, node.left)
+        if node.right:
+            queue.insert(0, node.right)
 
 
-heap_list = [1, 3, 5, 7, 9, 2, 10, 12, 4, 15]
-heapq.heapify(heap_list)
+root = Node(0)
+root.left = Node(4)
+root.left.left = Node(5)
+root.left.right = Node(10)
+root.right = Node(1)
+root.right.left = Node(3)
 
-print(heap_list)
-heap_tree_root = build_heap_tree(heap_list, None, 0, len(heap_list))
+total_steps = count_nodes(root)
 
-total_steps = count_nodes(heap_tree_root)
+dfs_visualize(root, total_steps)
+draw_tree(root)
 
-dfs_visualize(heap_tree_root, total_steps)
-draw_tree(heap_tree_root)
-
-bfs_visualize(heap_tree_root, total_steps)
-draw_tree(heap_tree_root)
+bfs_visualize(root, total_steps)
+draw_tree(root)

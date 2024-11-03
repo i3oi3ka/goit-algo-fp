@@ -61,15 +61,15 @@ def build_heap_tree(heap, root, i, n):
 
 if __name__ == '__main__':
     # Створення дерева
-    root = Node(0)
-    root.left = Node(4)
-    root.left.left = Node(5)
-    root.left.right = Node(10)
-    root.right = Node(1)
-    root.right.left = Node(3)
-
-    # Відображення дерева
-    draw_tree(root)
+    # root = Node(0)
+    # root.left = Node(4)
+    # root.left.left = Node(5)
+    # root.left.right = Node(10)
+    # root.right = Node(1)
+    # root.right.left = Node(3)
+    #
+    # # Відображення дерева
+    # draw_tree(root)
 
     heap_list = [1, 3, 5, 7, 9, 2]
     heapq.heapify(heap_list)
