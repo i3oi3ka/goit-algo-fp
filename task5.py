@@ -1,4 +1,4 @@
-from task4 import draw_tree, Node
+from task4 import draw_tree, Node, build_heap_tree
 import  heapq
 
 
@@ -42,16 +42,16 @@ def bfs_visualize(root: Node, total_steps: int):
             queue.insert(0, root.right)
 
 
-heap_list = [1, 3, 5, 7, 9, 2]
+heap_list = [1, 3, 5, 7, 9, 2, 10, 12, 4, 15]
 heapq.heapify(heap_list)
 
 print(heap_list)
 heap_tree_root = build_heap_tree(heap_list, None, 0, len(heap_list))
 
-total_steps = count_nodes(root)
+total_steps = count_nodes(heap_tree_root)
 
-dfs_visualize(root, total_steps)
-draw_tree(root)
+dfs_visualize(heap_tree_root, total_steps)
+draw_tree(heap_tree_root)
 
-bfs_visualize(root, total_steps)
-draw_tree(root)
+bfs_visualize(heap_tree_root, total_steps)
+draw_tree(heap_tree_root)
